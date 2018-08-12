@@ -2,12 +2,12 @@ package br.sc.senac.dd.aula04.exercicio;
 
 public class Caminhao extends Automovel{
 	
-	private int eixos;
+	private String eixos;
 	private Carroceria carroceria;
 	
-	public Caminhao(String fabricante, String modelo, int ano, String chassi, int numRodas, int eixos,
-			Carroceria carroceria) {
-		super(fabricante, modelo, ano, chassi, numRodas);
+		
+	public Caminhao(String fabricante, String modelo, String ano, String chassi, String eixos, Carroceria carroceria) {
+		super(fabricante, modelo, ano, chassi);
 		this.eixos = eixos;
 		this.carroceria = carroceria;
 	}
@@ -16,11 +16,11 @@ public class Caminhao extends Automovel{
 		super();
 	}
 
-	public int getEixos() {
+	public String getEixos() {
 		return eixos;
 	}
 
-	public void setEixos(int eixos) {
+	public void setEixos(String eixos) {
 		this.eixos = eixos;
 	}
 
@@ -31,6 +31,8 @@ public class Caminhao extends Automovel{
 	public void setCarroceria(Carroceria carroceria) {
 		this.carroceria = carroceria;
 	}
+
+	
 	
 	
 }

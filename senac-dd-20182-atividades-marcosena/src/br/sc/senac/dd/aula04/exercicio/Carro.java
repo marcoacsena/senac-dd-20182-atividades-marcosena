@@ -4,11 +4,12 @@ public class Carro extends Automovel{
 	
 	private String categoria; //passeio, SUV, transporte.
 
-	public Carro(String fabricante, String modelo, int ano, String chassi, int numRodas, String categoria) {
-		super(fabricante, modelo, ano, chassi, numRodas);
+		
+	public Carro(String fabricante, String modelo, String ano, String chassi, String categoria) {
+		super(fabricante, modelo, ano, chassi);
 		this.categoria = categoria;
 	}
-	
+
 	public Carro() {
 		super();
 	}

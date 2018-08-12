@@ -1,4 +1,4 @@
-package teste;
+package br.sc.senac.dd.gui;
 
 import javax.swing.JOptionPane;
 
