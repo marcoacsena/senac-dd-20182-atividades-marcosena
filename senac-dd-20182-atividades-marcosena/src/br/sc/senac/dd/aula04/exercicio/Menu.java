@@ -19,33 +19,37 @@ public void apresentarMenu () {
 		
 		String opcao = (String) JOptionPane.showInputDialog(null, "Por gentileza,  selecione uma opção",
 				"Cadastro de Veículos", JOptionPane.INFORMATION_MESSAGE, null, menu, menu[0]);
-	
-		switch (opcao) {
-			
-		case "1. Cadastrar Moto": 
-			this.cadastrarMoto();
-			break;
 		
-		case "2.Cadastrar CaminhãoS":
-			this.cadastrarCaminhao();
-			break;
+		if(opcao != null) {
 			
-		case "3. Cadastrar Carro":
-			this.cadastrarCarro();
-			break;
+			switch (opcao) {
+				
+			case "1. Cadastrar Moto": 
+				this.cadastrarMoto();
+				break;
 			
-		case "4. Ver Caminhão e Carro":
-			this.verCaminhaoECarro();
-			break;
-			
-		case "5. Ver Motos":
-			this.verMotos();
-			break;
-		default:
-			JOptionPane.showMessageDialog(null, "Opção inválida!");
-			break;
-			
+			case "2.Cadastrar Caminhão":
+				this.cadastrarCaminhao();
+				break;
+				
+			case "3. Cadastrar Carro":
+				this.cadastrarCarro();
+				break;
+				
+			case "4. Ver Caminhão e Carro":
+				this.verCaminhaoECarro();
+				break;
+				
+			case "5. Ver Motos":
+				this.verMotos();
+				break;
+			default:
+				JOptionPane.showMessageDialog(null, "Opção inválida!");
+				break;
+			}	
 		}
+		
+		JOptionPane.showMessageDialog(null, "Você selecionou a opçao cancelar!");
 	}
 
 
