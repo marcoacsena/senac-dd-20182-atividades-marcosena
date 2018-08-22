@@ -13,7 +13,8 @@ public class MenuProduto {
 			try {
 				opcao = Integer.parseInt(JOptionPane.showInputDialog(criarMenuProduto()));
 			}catch(NumberFormatException ex){
-				JOptionPane.showMessageDialog(null, "Caro usuário, o número deve ser inteiro, entre 1 e 5.");
+				JOptionPane.showMessageDialog(null, "Caro usuário, o número da opção selecionada"
+						+ "deve ser um inteiro, entre 1 e 6.");
 			}
 								
 			

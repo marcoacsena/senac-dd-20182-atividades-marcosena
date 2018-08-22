@@ -103,6 +103,7 @@ public abstract class BaseDAO<T> {
 			int resultado = stmt.executeUpdate(sql);
 			sucessoDelete = (resultado == CODIGO_RETORNO_SUCESSO_SQL);
 		} catch (SQLException e) {
+			
 			System.out.println("Erro ao atualizar o registro com id = " + idEntidade + "da entidade "
 					+ this.getClass().toString() + "\n"
 					+ e.getMessage());
@@ -155,8 +156,6 @@ public abstract class BaseDAO<T> {
 				T objetoConsultado = construirObjetoDoResultSet(resultado);
 				listaEntidades.add(objetoConsultado);
 			}
-			
-			JOptionPane.showMessageDialog(null, listaEntidades);
 			
 		} catch (SQLException e) {
 			System.out.println("Erro ao consultar todos os objetos da entidade" + this.getClass().toString());

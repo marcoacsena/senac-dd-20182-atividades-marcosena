@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Menu {
 	
-	public void apresentaMenu() {
+	public void apresentarMenu() {
 		
 //		String [] menu = {"Produto", "Funcionário", "Sair"};
 //		MenuProduto menuProduto = new MenuProduto();
@@ -14,10 +14,9 @@ public class Menu {
 		//null, menu, menu[0]);
 //		
 //		Professor, por que esse código acima não é recomendado, pois entendo que é mais simples,
-//		pois não precisa criar o método criarOpcaoMenu?
+//		pois não precisa criar o método criarOpcaoMenu?		
 		
-		
-		int opcao = -1; //Professor, por que novo Id = -1?
+		int opcao = -1; //Professor, por que a variável opção = -1?
 		
 		while (opcao!=3) {
 		 	
@@ -25,8 +24,10 @@ public class Menu {
 				opcao = Integer.parseInt(JOptionPane.showInputDialog(criarOpcaoMenu()));
 				
 			}catch(NumberFormatException ex){
-				JOptionPane.showMessageDialog(null, "Caro usuário, o número deve ser inteiro, entre 1 e 3.");
-			}
+				
+				JOptionPane.showMessageDialog(null, "Caro usuário, o número da opção selecionada "
+						+ "deve ser um inteiro, entre 1 e 3.");
+			}//Professor, por que a exceção NumberFormatException? O que representa ex?
 			
 			switch(opcao) {
 			

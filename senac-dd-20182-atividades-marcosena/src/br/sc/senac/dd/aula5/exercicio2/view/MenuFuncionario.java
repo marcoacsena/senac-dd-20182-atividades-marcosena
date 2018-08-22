@@ -1,6 +1,8 @@
 package br.sc.senac.dd.aula5.exercicio2.view;
 
 import java.sql.SQLException;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import br.sc.senac.dd.aula5.exercicio2.dao.FuncionarioDAO;
 import br.sc.senac.dd.aula5.exercicio2.vo.FuncionarioVO;
@@ -15,7 +17,7 @@ public class MenuFuncionario{
 			try {
 				opcao = Integer.parseInt(JOptionPane.showInputDialog(criarMenuFuncionario()));
 				
-			}catch(NumberFormatException ex){
+			}catch(NumberFormatException ex){//Nesta classe o SQLException foi importado, por que?
 				JOptionPane.showMessageDialog(null, "O número digitado deve ser um inteiro entre 1 e 5;");
 			}
 			switch(opcao) {
@@ -93,8 +95,8 @@ public class MenuFuncionario{
 			funcionarioDAO.excluir(funcionarioVO.getIdFuncionario());
 			JOptionPane.showMessageDialog(null, "Funcionário excluído com sucesso!");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			e.printStackTrace(); //O que sigbifica essa Exception?
 		}
 		}
 
@@ -124,8 +126,8 @@ public class MenuFuncionario{
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		
 		try {
-			funcionarioDAO.listarTodos();
-						
+			List<FuncionarioVO> funcionarios = funcionarioDAO.listarTodos();
+			JOptionPane.showMessageDialog(null, funcionarios);			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
