@@ -144,8 +144,7 @@ public class ProdutoDAO {
 
 		Connection conn = Banco.getConnection();
 		PreparedStatement prepStmt = Banco.getPreparedStatement(conn, query);
-		ProdutoVO produto = null;
-		ArrayList<ProdutoVO> produtos = new ArrayList<ProdutoVO>();		
+		ProdutoVO produto = null;				
 
 		try {
 			prepStmt.setInt(1, id);
@@ -157,11 +156,8 @@ public class ProdutoDAO {
 				produto.setNome(result.getString("nome"));
 				produto.setSecao(result.getString("secao"));
 				produto.setValor(result.getDouble(3));
-
-				produtos.add(produto);
-			}
-
-			JOptionPane.showMessageDialog(null, produtos.toString());
+				
+			}			
 
 		} catch(SQLException e) {
 			System.out.println("Erro ao executar a Query de Consulta de produtos!Causa: \n: " + e.getMessage());

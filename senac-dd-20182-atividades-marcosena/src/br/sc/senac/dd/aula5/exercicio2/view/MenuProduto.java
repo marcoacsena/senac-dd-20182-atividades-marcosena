@@ -111,6 +111,7 @@ public class MenuProduto {
 		
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		produtoDAO.consultarPorId(produtoVO.getIdProduto());
+		JOptionPane.showMessageDialog(null, produtoDAO.toString());
 	}
 
 		

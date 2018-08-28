@@ -16,11 +16,21 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JTextPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Calculadora extends JFrame {
 
 	private JPanel pnlExterno;
+	private JTextField txtNumero1;
+	private JTextField txtNumero2;
 	private JTextField txtVisor;
+	
 
 	/**
 	 * Launch the application.
@@ -44,168 +54,153 @@ public class Calculadora extends JFrame {
 	public Calculadora() {
 		setTitle("Calculadora");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 465);
+		setBounds(100, 100, 383, 465);
 		pnlExterno = new JPanel();
+		pnlExterno.setBackground(new Color(32, 178, 170));
 		pnlExterno.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(pnlExterno);
 		
-		JPanel pnlBordaCalculadora = new JPanel();
-		pnlBordaCalculadora.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLUE, null, null, null));
-		GroupLayout gl_pnlExterno = new GroupLayout(pnlExterno);
-		gl_pnlExterno.setHorizontalGroup(
-			gl_pnlExterno.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_pnlExterno.createSequentialGroup()
-					.addContainerGap(40, Short.MAX_VALUE)
-					.addComponent(pnlBordaCalculadora, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
-					.addGap(34))
-		);
-		gl_pnlExterno.setVerticalGroup(
-			gl_pnlExterno.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlExterno.createSequentialGroup()
-					.addComponent(pnlBordaCalculadora, GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-					.addGap(22))
-		);
-		pnlBordaCalculadora.setLayout(null);
+		txtVisor = new JTextField();
+		txtVisor.setHorizontalAlignment(SwingConstants.CENTER);
+		txtVisor.setEditable(false);
+		txtVisor.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtVisor.setBounds(71, 33, 237, 45);
+		pnlExterno.add(txtVisor);
+		txtVisor.setColumns(10);
 		
-		JButton btnSete = new JButton("7");
-		btnSete.setBounds(11, 133, 60, 50);
-		btnSete.setToolTipText("");
-		btnSete.setFont(new Font("Tahoma", Font.BOLD, 30));
-		pnlBordaCalculadora.add(btnSete);
-		
-		JButton btnOito = new JButton("8");
-		btnOito.setBounds(73, 133, 60, 50);
-		btnOito.setFont(new Font("Tahoma", Font.BOLD, 30));
-		pnlBordaCalculadora.add(btnOito);
-		
-		JButton btnNove = new JButton("9");
-		btnNove.setBounds(138, 133, 60, 50);
-		btnNove.setFont(new Font("Tahoma", Font.BOLD, 30));
-		pnlBordaCalculadora.add(btnNove);
-		
-		JButton btnQuatro = new JButton("4");
-		btnQuatro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		txtNumero1 = new JTextField();
+		txtNumero1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtNumero1.setHorizontalAlignment(SwingConstants.CENTER);
+		txtNumero1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				double num1 = e.getKeyCode();
 			}
 		});
-		btnQuatro.setToolTipText("");
-		btnQuatro.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnQuatro.setBounds(11, 186, 60, 50);
-		pnlBordaCalculadora.add(btnQuatro);
+		txtNumero1.setBounds(111, 117, 48, 45);
+		txtNumero1.setColumns(10);
 		
-		JButton btnCinco = new JButton("5");
-		btnCinco.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		JLabel lblNumero1 = new JLabel("N\u00FAmero 1");
+		lblNumero1.setBounds(30, 129, 71, 20);
+		lblNumero1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
+		JLabel lblNumero2 = new JLabel("N\u00FAmero 2");
+		lblNumero2.setBounds(199, 129, 71, 20);
+		lblNumero2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
+		txtNumero2 = new JTextField();
+		txtNumero2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtNumero2.setHorizontalAlignment(SwingConstants.CENTER);
+		txtNumero2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				double num2 = e.getKeyCode();
 			}
 		});
-		btnCinco.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnCinco.setBounds(73, 186, 60, 50);
-		pnlBordaCalculadora.add(btnCinco);
+		txtNumero2.setBounds(281, 117, 48, 45);
+		txtNumero2.setColumns(10);
 		
-		JButton btnSeis = new JButton("6");
-		btnSeis.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnSeis.setBounds(138, 186, 60, 50);
-		pnlBordaCalculadora.add(btnSeis);
-		
-		JButton btnUm = new JButton("1");
-		btnUm.setToolTipText("");
-		btnUm.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnUm.setBounds(11, 239, 60, 50);
-		pnlBordaCalculadora.add(btnUm);
-		
-		JButton btnDois = new JButton("2");
-		btnDois.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnDois.setBounds(73, 239, 60, 50);
-		pnlBordaCalculadora.add(btnDois);
-		
-		JButton btnTres = new JButton("3");
-		btnTres.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnTres.setBounds(138, 239, 60, 50);
-		pnlBordaCalculadora.add(btnTres);
-		
-		JButton btnZero = new JButton("0");
-		btnZero.setToolTipText("");
-		btnZero.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnZero.setBounds(11, 292, 60, 50);
-		pnlBordaCalculadora.add(btnZero);
-		
-		JButton btnPonto = new JButton(".");
-		btnPonto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		JButton btnSoma = new JButton("+");
+		btnSoma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double valor1 = Double.parseDouble(txtNumero1.getText());
+				double valor2 = Double.parseDouble(txtNumero2.getText());
+				double soma = valor1 + valor2;
+				txtVisor.setText(soma +"");
+			
+				
 			}
 		});
-		btnPonto.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnPonto.setBounds(73, 292, 60, 50);
-		pnlBordaCalculadora.add(btnPonto);
+		btnSoma.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnSoma.setBounds(102, 209, 60, 45);
 		
-		JButton btnIgual = new JButton("=");
-		btnIgual.setForeground(Color.RED);
-		btnIgual.setFont(new Font("Tahoma", Font.BOLD, 22));
-		btnIgual.setBounds(138, 292, 60, 50);
-		pnlBordaCalculadora.add(btnIgual);
+		JButton btnSubtracao = new JButton("_");
+		btnSubtracao.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				double valor1 = Double.parseDouble(txtNumero1.getText());
+				double valor2 = Double.parseDouble(txtNumero2.getText());
+				double subtracao = valor1 - valor2;
+				txtVisor.setText(subtracao +"");
+				
+			}
+		});
 		
-		JButton btnMultiplicacao = new JButton("X");
-		btnMultiplicacao.setForeground(Color.BLACK);
-		btnMultiplicacao.setBackground(Color.WHITE);
-		btnMultiplicacao.setFont(new Font("Tahoma", Font.BOLD, 22));
-		btnMultiplicacao.setBounds(200, 132, 60, 50);
-		pnlBordaCalculadora.add(btnMultiplicacao);
+		btnSubtracao.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnSubtracao.setBounds(200, 209, 60, 45);
 		
 		JButton btnDivisao = new JButton("/");
+		btnDivisao.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				double valor1 = Double.parseDouble(txtNumero1.getText());
+				double valor2 = Double.parseDouble(txtNumero2.getText());
+				double divisao = valor1 / valor2;
+				txtVisor.setText(divisao +"");
+				
+			}
+		});
+		
+		btnDivisao.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnDivisao.setBounds(102, 290, 60, 45);
 		btnDivisao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnDivisao.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnDivisao.setBounds(200, 186, 60, 50);
-		pnlBordaCalculadora.add(btnDivisao);
 		
-		JButton btnMenos = new JButton("-");
-		btnMenos.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnMenos.setBounds(200, 239, 60, 50);
-		pnlBordaCalculadora.add(btnMenos);
+		JButton btnMultiplicacao = new JButton("*");
 		
-		JButton btnSoma = new JButton("+");
-		btnSoma.setFont(new Font("Tahoma", Font.BOLD, 22));
-		btnSoma.setBounds(200, 292, 60, 50);
-		pnlBordaCalculadora.add(btnSoma);
+		btnMultiplicacao.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				double valor1 = Double.parseDouble(txtNumero1.getText());
+				double valor2 = Double.parseDouble(txtNumero2.getText());
+				double multiplicacao = valor1 * valor2;
+				txtVisor.setText(multiplicacao +"");
+				
+			}
+		});
+		btnMultiplicacao.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnMultiplicacao.setBounds(200, 290, 60, 45);
+		btnMultiplicacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		pnlExterno.setLayout(null);
+		pnlExterno.add(btnSoma);
+		pnlExterno.add(btnDivisao);
+		pnlExterno.add(lblNumero1);
+		pnlExterno.add(lblNumero2);
+		pnlExterno.add(txtNumero1);
+		pnlExterno.add(txtNumero2);
+		pnlExterno.add(btnSubtracao);
+		pnlExterno.add(btnMultiplicacao);
 		
-		JButton btnPercentagem = new JButton("%");
-		btnPercentagem.addActionListener(new ActionListener() {
+		JButton btnLimparVisor = new JButton("Limpar");
+		btnLimparVisor.setForeground(new Color(255, 0, 0));
+		btnLimparVisor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnLimparVisor.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				txtVisor.setText(null);
+				txtNumero1.setText(null);
+				txtNumero2.setText(null);
+			}
+		});
+		btnLimparVisor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnPercentagem.setToolTipText("");
-		btnPercentagem.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnPercentagem.setBounds(11, 80, 60, 50);
-		pnlBordaCalculadora.add(btnPercentagem);
+		btnLimparVisor.setBounds(140, 359, 109, 57);
+		pnlExterno.add(btnLimparVisor);
 		
-		JButton btnAbreParentese = new JButton("(");
-		btnAbreParentese.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnAbreParentese.setBounds(73, 80, 60, 50);
-		pnlBordaCalculadora.add(btnAbreParentese);
 		
-		JButton btnFechaParentese = new JButton(")");
-		btnFechaParentese.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnFechaParentese.setBounds(138, 80, 60, 50);
-		pnlBordaCalculadora.add(btnFechaParentese);
-		
-		JButton btnLimparVisor = new JButton("C");
-		btnLimparVisor.setForeground(Color.BLACK);
-		btnLimparVisor.setFont(new Font("Tahoma", Font.BOLD, 22));
-		btnLimparVisor.setBackground(Color.WHITE);
-		btnLimparVisor.setBounds(200, 80, 60, 50);
-		pnlBordaCalculadora.add(btnLimparVisor);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(5, 17, 273, 64);
-		pnlBordaCalculadora.add(panel_1);
-		panel_1.setLayout(null);
-		
-		txtVisor = new JTextField();
-		txtVisor.setBounds(5, 16, 249, 37);
-		panel_1.add(txtVisor);
-		txtVisor.setColumns(10);
-		pnlExterno.setLayout(gl_pnlExterno);
 	}
 }
