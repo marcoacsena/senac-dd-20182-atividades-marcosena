@@ -27,11 +27,11 @@ public class ProdutoDAO {
 
 			prepStmt.executeUpdate();
 
-//			ResultSet generatedKeys = prepStmt.getGeneratedKeys();
-//			
-//			if (generatedKeys.next()) {
-//				novoId = generatedKeys.getInt(1);
-//			}
+			ResultSet generatedKeys = prepStmt.getGeneratedKeys();
+			
+			if (generatedKeys.next()) {
+				novoId = generatedKeys.getInt(1);
+			}
 			
 			JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
 
