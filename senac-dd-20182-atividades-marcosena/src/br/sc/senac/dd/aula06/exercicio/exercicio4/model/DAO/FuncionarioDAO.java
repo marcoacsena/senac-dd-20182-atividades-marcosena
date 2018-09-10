@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 import br.sc.senac.dd.aula06.exercicio.exercicio4.model.VO.FuncionarioVO;
 
 
@@ -111,35 +110,36 @@ public class FuncionarioDAO {
 
 	}
 
-//	public ArrayList<FuncionarioVO> listarTodosProdutos() {
-//
-//		String query = "select * from funcionario";
-//
-//		Connection conn = AcessoAoBanco.getConnection();
-//		PreparedStatement prepStmt = AcessoAoBanco.getPreparedStatement(conn, query);
-//		ArrayList<FuncionarioVO> funcionarios = new ArrayList<FuncionarioVO>();
-//		
-//		try {
-//			ResultSet resultado = prepStmt.executeQuery(query);
-//
-//			while (resultado.next()) {
-//				FuncionarioVO funcionario = new FuncionarioVO();
-//				funcionario.setIdFuncionario(resultado.getInt(1));
-//				funcionario.setNome(resultado.getString("nome"));
-//				funcionario.setTelefone(resultado.getString("telefone"));
-//				funcionario.setEmail(resultado.getString("email"));//outra forma de fazer.
-//
-//				funcionarios.add(funcionario);
-//			}	
-//			
-//			JOptionPane.showMessageDialog(null, funcionarios.toString());
-//			
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//
-//		return funcionarios;
-//	}
+	public ArrayList<FuncionarioVO> listarTodosOsFuncionarios() {
+
+		String query = "select * from funcionario";
+
+		Connection conn = AcessoAoBanco.getConnection();
+		PreparedStatement prepStmt = AcessoAoBanco.getPreparedStatement(conn, query);
+		ArrayList<FuncionarioVO> funcionariosVO = new ArrayList<FuncionarioVO>();
+		
+		try {
+			ResultSet resultado = prepStmt.executeQuery(query);
+
+			while (resultado.next()) {
+				
+				FuncionarioVO funcionarioVO = new FuncionarioVO();
+				funcionarioVO.setIdFuncionario(resultado.getInt(1));
+				funcionarioVO.setNome(resultado.getString("nome"));
+				funcionarioVO.setCpf(resultado.getString("cpf"));
+				funcionarioVO.setTelefone(resultado.getString("telefone"));
+				funcionarioVO.setEmail(resultado.getString("email"));//outra forma de fazer.
+
+				funcionariosVO.add(funcionarioVO);
+			}				
+			
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+
+		return funcionariosVO;
+	}
 
 	public FuncionarioVO consultarFuncionarioPorId(int id) {
 
