@@ -141,10 +141,9 @@ public class FuncionarioDAO {
 		return funcionariosVO;
 	}
 
-	public FuncionarioVO consultarFuncionarioPorId(int id) {
-
+	public FuncionarioVO consultarFuncionarioPorId(int idfuncionario) {
+				
 		String query = "SELECT * FROM funcionario" + " WHERE idfuncionario = ?";
-		
 		FuncionarioVO funcionario = null;
 		
 		Connection conn = AcessoAoBanco.getConnection();
@@ -152,17 +151,18 @@ public class FuncionarioDAO {
 					
 
 		try {
-			prepStmt.setInt(1, id);
-			ResultSet result= prepStmt.executeQuery();
+			prepStmt.setInt(1, idfuncionario);
+			ResultSet result = prepStmt.executeQuery();
 
 			while (result.next()){
 				funcionario = new FuncionarioVO();
 				
+				funcionario.setIdFuncionario(result.getInt("idFuncionario"));
 				funcionario.setNome(result.getString("nome"));
 				funcionario.setCpf(result.getString("cpf"));
 				funcionario.setTelefone(result.getString("telefone"));
 				funcionario.setEmail(result.getString("email"));
-				funcionario.setIdFuncionario(result.getInt("idFuncionario"));
+				
 				
 			}			
 

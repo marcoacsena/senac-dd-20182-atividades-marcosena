@@ -1,7 +1,6 @@
 package br.sc.senac.dd.aula06.exercicio.exercicio4.controller;
 
 import java.util.ArrayList;
-
 import br.sc.senac.dd.aula06.exercicio.exercicio4.model.BO.FuncionarioBO;
 import br.sc.senac.dd.aula06.exercicio.exercicio4.model.VO.FuncionarioVO;
 
@@ -11,6 +10,13 @@ public class Controller {
 		FuncionarioBO funcionariosBO = new FuncionarioBO();		
 
 		return funcionariosBO.listarTodosOsFuncionariosBO();
+	}
+
+	public FuncionarioVO consultarFuncionarioControllerPorId(int idfuncionario) {
+		
+		FuncionarioBO funcionarioBO = new FuncionarioBO();	
+		
+		return funcionarioBO.consultarFuncionarioBOPorId(idfuncionario);
 	}
 
 	

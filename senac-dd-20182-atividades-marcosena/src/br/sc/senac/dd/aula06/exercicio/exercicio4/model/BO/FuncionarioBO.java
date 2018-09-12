@@ -8,9 +8,16 @@ public class FuncionarioBO {
 
 	public ArrayList<FuncionarioVO> listarTodosOsFuncionariosBO() {
 		
-		FuncionarioDAO FuncionariosDAO = new FuncionarioDAO();
+		FuncionarioDAO funcionariosDAO = new FuncionarioDAO();
 		
-		return FuncionariosDAO.listarTodosOsFuncionarios();
+		return funcionariosDAO.listarTodosOsFuncionarios();
+	}
+
+	public FuncionarioVO consultarFuncionarioBOPorId(int idfuncionario) {
+		
+		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+		
+		return funcionarioDAO.consultarFuncionarioPorId(idfuncionario);
 	}
 		
 
