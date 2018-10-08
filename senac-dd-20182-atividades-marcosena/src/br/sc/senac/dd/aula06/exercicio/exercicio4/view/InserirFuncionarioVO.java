@@ -3,6 +3,7 @@ package br.sc.senac.dd.aula06.exercicio.exercicio4.view;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,12 +18,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class InserirFuncionarioVO extends JFrame {
+public class InserirFuncionarioVO extends JPanel {
 	
 	FuncionarioVO funcionarioVO = new FuncionarioVO();
 	FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
-	private JPanel contentPane;
+	
 	private JTextField txtNome;
 	private JTextField txtCPF;
 	private JTextField txtTelefone;
@@ -48,14 +49,10 @@ public class InserirFuncionarioVO extends JFrame {
 	 * Create the frame.
 	 */
 	public InserirFuncionarioVO() {
-		setTitle("M\u00F3dulo Funcion\u00E1rio - Cadastrar");
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 527, 336);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLayout(null);
 		
 		JButton btnNome = new JButton("Nome:");
 		btnNome.addActionListener(new ActionListener() {
@@ -64,7 +61,7 @@ public class InserirFuncionarioVO extends JFrame {
 		});
 		btnNome.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNome.setBounds(10, 61, 115, 23);
-		contentPane.add(btnNome);
+		this.add(btnNome);
 		
 		txtNome = new JTextField();
 		txtNome.addKeyListener(new KeyAdapter() {
@@ -80,14 +77,14 @@ public class InserirFuncionarioVO extends JFrame {
 		txtNome.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		txtNome.setText("");
 		txtNome.setBounds(135, 61, 326, 20);
-		contentPane.add(txtNome);
+		this.add(txtNome);
 		txtNome.setColumns(10);
 		
 		JButton btnCpf = new JButton("CPF:");
 		btnCpf.setToolTipText("Digite s\u00F3 n\u00FAmeros!");
 		btnCpf.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCpf.setBounds(10, 95, 115, 23);
-		contentPane.add(btnCpf);
+		this.add(btnCpf);
 		
 		txtCPF = new JTextField();
 		txtCPF.setToolTipText("Digite s\u00F3 n\u00FAmeros!");
@@ -103,13 +100,13 @@ public class InserirFuncionarioVO extends JFrame {
 		txtCPF.setText("");
 		txtCPF.setColumns(10);
 		txtCPF.setBounds(135, 95, 326, 20);
-		contentPane.add(txtCPF);
+		this.add(txtCPF);
 		
 		JButton btnTelefone = new JButton("Telefone:");
 		btnTelefone.setToolTipText("Digite s\u00F3 n\u00FAmeros!");
 		btnTelefone.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnTelefone.setBounds(10, 129, 115, 23);
-		contentPane.add(btnTelefone);
+		this.add(btnTelefone);
 		
 		txtTelefone = new JTextField();
 		txtTelefone.setToolTipText("Digite s\u00F3 n\u00FAmeros!");
@@ -124,12 +121,12 @@ public class InserirFuncionarioVO extends JFrame {
 		txtTelefone.setText("");
 		txtTelefone.setColumns(10);
 		txtTelefone.setBounds(135, 129, 326, 20);
-		contentPane.add(txtTelefone);
+		this.add(txtTelefone);
 		
 		JButton btnEmail = new JButton("Email:");
 		btnEmail.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnEmail.setBounds(10, 163, 115, 23);
-		contentPane.add(btnEmail);
+		this.add(btnEmail);
 		
 		txtEmail = new JTextField();
 		txtEmail.addKeyListener(new KeyAdapter() {
@@ -143,7 +140,7 @@ public class InserirFuncionarioVO extends JFrame {
 		txtEmail.setText("");
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(135, 163, 326, 20);
-		contentPane.add(txtEmail);
+		this.add(txtEmail);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -160,6 +157,6 @@ public class InserirFuncionarioVO extends JFrame {
 		btnCadastrar.setForeground(new Color(220, 20, 60));
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnCadastrar.setBounds(123, 211, 282, 40);
-		contentPane.add(btnCadastrar);
+		this.add(btnCadastrar);
 	}
 }

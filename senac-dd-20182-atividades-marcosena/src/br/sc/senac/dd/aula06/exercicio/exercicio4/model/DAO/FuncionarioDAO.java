@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import br.sc.senac.dd.aula06.exercicio.exercicio4.model.VO.FuncionarioVO;
 
 
@@ -66,7 +65,7 @@ public class FuncionarioDAO {
 
 			
 		}catch (SQLException e) {
-			System.out.println("Erro ao executar Query de Exclusão do Produto! Causa: \n: " + e.getMessage());
+			System.out.println("Erro ao executar Query de Exclusão do Funcionario! Causa: \n: " + e.getMessage());
 		}finally {
 			AcessoAoBanco.closePreparedStatement(prepStmt);
 			AcessoAoBanco.closeConnection(conn);
@@ -116,6 +115,7 @@ public class FuncionarioDAO {
 
 		Connection conn = AcessoAoBanco.getConnection();
 		PreparedStatement prepStmt = AcessoAoBanco.getPreparedStatement(conn, query);
+		
 		ArrayList<FuncionarioVO> funcionariosVO = new ArrayList<FuncionarioVO>();
 		
 		try {
@@ -128,7 +128,7 @@ public class FuncionarioDAO {
 				funcionarioVO.setNome(resultado.getString("nome"));
 				funcionarioVO.setCpf(resultado.getString("cpf"));
 				funcionarioVO.setTelefone(resultado.getString("telefone"));
-				funcionarioVO.setEmail(resultado.getString("email"));//outra forma de fazer.
+				funcionarioVO.setEmail(resultado.getString("email"));
 
 				funcionariosVO.add(funcionarioVO);
 			}				

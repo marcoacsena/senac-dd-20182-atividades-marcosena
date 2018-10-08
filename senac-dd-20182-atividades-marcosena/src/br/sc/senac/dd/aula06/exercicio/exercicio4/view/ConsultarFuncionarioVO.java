@@ -3,6 +3,7 @@ package br.sc.senac.dd.aula06.exercicio.exercicio4.view;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,9 +22,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 
-public class ConsultarFuncionarioVO extends JFrame {
+public class ConsultarFuncionarioVO extends JPanel {
 
-	private JPanel contentPane;
+	
 	private JTextField txtNome;
 	private JTextField txtCPF;
 	private JTextField txtTelefone;
@@ -53,19 +54,17 @@ public class ConsultarFuncionarioVO extends JFrame {
 		FuncionarioVO funcionarioVO = new FuncionarioVO();
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		
-		setTitle("M\u00F3dulo Funcionario - Consultar/Atualizar");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		setBounds(100, 100, 548, 345);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		this.setBorder(new EmptyBorder(5, 5, 5, 5));		
+		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel.setBounds(10, 11, 511, 298);
-		contentPane.add(panel);
+		this.add(panel);
 			
 		
 		JLabel lblId = new JLabel("Identificador:");

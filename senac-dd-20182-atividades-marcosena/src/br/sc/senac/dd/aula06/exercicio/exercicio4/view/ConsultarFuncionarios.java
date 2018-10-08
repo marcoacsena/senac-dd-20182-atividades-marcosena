@@ -134,10 +134,10 @@ public class ConsultarFuncionarios extends JFrame {
 		btnConsultarPorId.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
 				Controller funcionarioController = new Controller();
 				
 				FuncionarioVO funcionarioVO = funcionarioController.consultarFuncionarioControllerPorId(Integer.parseInt(txtConsultarPorId.getText()));
-				
 				
 				DefaultTableModel modelo = (DefaultTableModel) tblfuncionarios.getModel();
 				
